@@ -15,6 +15,10 @@ Simple game with Phaser.
     (you can replace 8888 by any number of a port you want, just make sure the port is available).
 - then navigate to http://localhost:8888/ .
 
+## Game
+
+<img src="assets/game.png" />
+
 ## Author
 
 Luljn
