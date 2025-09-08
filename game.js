@@ -3,12 +3,14 @@ class mainScene {
 
     // Load assets.
     preload() {
+
         this.load.image('player', 'assets/ghost.png');
         this.load.image('coin', 'assets/coin.png');
     }
 
     // Initialize scene.
     create() {
+
         this.player = this.physics.add.sprite(60, 60, 'player');
         this.coin = this.physics.add.sprite(0, 0, 'coin');
         this.player.setScale(0.05)
@@ -23,6 +25,7 @@ class mainScene {
 
     // Handle the game logic.
     update() {
+
         // If player and coin overlapping.
         if (this.physics.overlap(this.player, this.coin)){
             this.hit();
@@ -47,6 +50,7 @@ class mainScene {
 
     // Handle collisions.
     hit() {
+
         this.coin.x = Phaser.Math.Between(100, 600);
         this.coin.y = Phaser.Math.Between(100, 300);
         this.score += 1;
@@ -63,9 +67,9 @@ class mainScene {
 
 // Phaser config.
 new Phaser.Game({
-    width: 700,                    // Width in pixels
-    height: 400,                   // Height in pixels
-    backgroundColor: '#a0a0a0',    // the background color (blue)
+    width: 1200,                    // Width in pixels
+    height: 500,                   // Height in pixels
+    backgroundColor: '#90EE90',    // the background color (blue)
     scene: mainScene,              // The main scene
     physics : {default: 'arcade'}, // The physics engine
     parent : 'game',               
