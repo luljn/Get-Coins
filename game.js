@@ -46,6 +46,8 @@ class mainScene {
         else if (this.arrow.up.isDown) {
             this.player.y -= 3;
         }
+
+        this.cross()
     }
 
     // Handle collisions.
@@ -62,6 +64,26 @@ class mainScene {
             scaleY: 0.09,
             yoyo: true,
         })
+    }
+
+    // Map limits crossing management.
+    cross() {
+
+        if(this.player.x < 0){
+            this.player.setX(1190)
+        }
+
+        if(this.player.x > 1200){
+            this.player.setX(0)
+        }
+
+        if(this.player.y < 0){
+            this.player.setY(490)
+        }
+
+        if(this.player.y > 500){
+            this.player.setY(0)
+        }
     }
 }
 
