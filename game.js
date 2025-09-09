@@ -6,6 +6,8 @@ class mainScene {
 
         this.load.image('player', 'assets/ghost.png');
         this.load.image('coin', 'assets/coin.png');
+        this.width = 1200;
+        this.height = 500;
     }
 
     // Initialize scene.
@@ -70,18 +72,18 @@ class mainScene {
     cross() {
 
         if(this.player.x < 0){
-            this.player.setX(1190)
+            this.player.setX(this.width-10)
         }
 
-        if(this.player.x > 1200){
+        if(this.player.x > this.width){
             this.player.setX(0)
         }
 
         if(this.player.y < 0){
-            this.player.setY(490)
+            this.player.setY(this.height-10)
         }
 
-        if(this.player.y > 500){
+        if(this.player.y > this.height){
             this.player.setY(0)
         }
     }
