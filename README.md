@@ -1,6 +1,6 @@
 # Get-Coins
 
-Simple game with Phaser.
+Simple game with Phaser (collect the coins).
 
 ## Tools used
 
@@ -17,8 +17,8 @@ Simple game with Phaser.
 
 ## Game
 
-<img src="assets/game.png" />
+<img src="assets/game.png"/>
 
 ## Author
 
-Luljn
+Luljn.
