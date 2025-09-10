@@ -6,6 +6,7 @@ class mainScene {
 
         this.load.image('player', 'assets/ghost.png');
         this.load.image('coin', 'assets/coin.png');
+        this.load.image('enemy', 'assets/enemy.png');
         this.width = 1200;
         this.height = 500;
     }
@@ -15,8 +16,17 @@ class mainScene {
 
         this.player = this.physics.add.sprite(60, 60, 'player');
         this.coin = this.physics.add.sprite(0, 0, 'coin');
-        this.player.setScale(0.05)
-        this.coin.setScale(0.045)
+        this.enemy1 = this.physics.add.sprite(Phaser.Math.Between(10, this.width-10), Phaser.Math.Between(10, this.height-10), 'enemy');
+        this.enemy2 = this.physics.add.sprite(Phaser.Math.Between(10, this.width-10), Phaser.Math.Between(10, this.height-10), 'enemy');
+        this.enemy3 = this.physics.add.sprite(Phaser.Math.Between(10, this.width-10), Phaser.Math.Between(10, this.height-10), 'enemy');
+        this.enemy4 = this.physics.add.sprite(Phaser.Math.Between(10, this.width-10), Phaser.Math.Between(10, this.height-10), 'enemy');
+        this.enemies = [this.enemy1, this.enemy2, this.enemy3, this.enemy4];
+        this.player.setScale(0.05);
+        this.coin.setScale(0.045);
+        this.enemy1.setScale(0.07);
+        this.enemy2.setScale(0.07);
+        this.enemy3.setScale(0.07);
+        this.enemy4.setScale(0.07);
 
         this.score = 0 // To store the score.
         let style = {font: '20px Arial', fill: '#fff'}
@@ -55,8 +65,8 @@ class mainScene {
     // Handle collisions.
     hit() {
 
-        this.coin.x = Phaser.Math.Between(100, 600);
-        this.coin.y = Phaser.Math.Between(100, 300);
+        this.coin.x = Phaser.Math.Between(10, this.width-10);
+        this.coin.y = Phaser.Math.Between(10, this.height-10);
         this.score += 1;
         this.scoreText.setText('score : ' + this.score);
         this.tweens.add({
