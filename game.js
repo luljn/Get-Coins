@@ -38,10 +38,34 @@ class mainScene {
     // Handle the game logic.
     update() {
 
-        // If player and coin overlapping.
+        // If the player and the coin overlapping.
         if (this.physics.overlap(this.player, this.coin)){
             this.hit();
         }
+
+        // If the player and an enemy overlapping.
+        if (this.physics.overlap(this.player, this.enemy1)){
+                this.hitEnemy();
+        }
+        if (this.physics.overlap(this.player, this.enemy2)){
+                this.hitEnemy();
+        }
+        if (this.physics.overlap(this.player, this.enemy3)){
+                this.hitEnemy();
+        }
+        if (this.physics.overlap(this.player, this.enemy4)){
+                this.hitEnemy();
+        }
+        /* for (let i = 0; i <= this.enemies.length; i++) {
+            if (this.physics.overlap(this.player, enemies[i])){
+                this.hitEnemy();
+            }
+        } */
+        /* this.enemies.forEach(function(enemy){
+            if (this.physics.overlap(this.player, enemy)){
+                this.hitEnemy();
+            }
+        }); */
 
         // Handle horizontal movements.
         if (this.arrow.right.isDown) {
@@ -62,7 +86,7 @@ class mainScene {
         this.cross()
     }
 
-    // Handle collisions.
+    // Handle collisions with the coin.
     hit() {
 
         this.coin.x = Phaser.Math.Between(10, this.width-10);
@@ -76,6 +100,18 @@ class mainScene {
             scaleY: 0.09,
             yoyo: true,
         })
+    }
+
+    // Handle collisions with an enemy.
+    hitEnemy() {
+
+        let style = {font: '50px Arial', fill: '#FF0000'};
+        let gameOverText = this.add.text(50, 50, 'Game Over !', style);
+    }
+
+    // Manage the movement of enemies.
+    enemiesMovement() {
+
     }
 
     // Map limits crossing management.
