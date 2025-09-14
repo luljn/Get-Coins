@@ -44,28 +44,10 @@ class mainScene {
         }
 
         // If the player and an enemy overlapping.
-        if (this.physics.overlap(this.player, this.enemy1)){
+        if (this.physics.overlap(this.player, this.enemy1) || (this.physics.overlap(this.player, this.enemy2)) || 
+            this.physics.overlap(this.player, this.enemy3) || (this.physics.overlap(this.player, this.enemy4))) {
                 this.hitEnemy();
         }
-        if (this.physics.overlap(this.player, this.enemy2)){
-                this.hitEnemy();
-        }
-        if (this.physics.overlap(this.player, this.enemy3)){
-                this.hitEnemy();
-        }
-        if (this.physics.overlap(this.player, this.enemy4)){
-                this.hitEnemy();
-        }
-        /* for (let i = 0; i <= this.enemies.length; i++) {
-            if (this.physics.overlap(this.player, enemies[i])){
-                this.hitEnemy();
-            }
-        } */
-        /* this.enemies.forEach(function(enemy){
-            if (this.physics.overlap(this.player, enemy)){
-                this.hitEnemy();
-            }
-        }); */
 
         // Handle horizontal movements.
         if (this.arrow.right.isDown) {
@@ -106,7 +88,7 @@ class mainScene {
     hitEnemy() {
 
         let style = {font: '50px Arial', fill: '#FF0000'};
-        let gameOverText = this.add.text(50, 50, 'Game Over !', style);
+        this.gameOverText = this.add.text(50, 50, 'Game Over !', style);
     }
 
     // Manage the movement of enemies.
